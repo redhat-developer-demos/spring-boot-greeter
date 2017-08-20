@@ -1,0 +1,7 @@
+data:
+  application.yaml: |-
+     greeter:
+       prefix: Hello
+metadata:
+  name: "@project.artifactId@"
+  labels: {}
