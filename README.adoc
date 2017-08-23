@@ -29,13 +29,12 @@ This should display the greeting with prefix configured for property `greeter.pr
 
 === Applying changes
 
-Edit the config map via `oc edit configmap spring-boot-greeter` and change the `greeter.prefix` to what you want
-and delete the existing pod, once the new pod is refreshed and you access the application as described in previous
-section then you should see value you updated.
+Edit the config map via `oc edit configmap spring-boot-greeter` and change the `greeter.prefix`,
+you will notice the spring boot application redeployed, if you try doing,
 
+[code,sh]
+----
+curl $(oc get route spring-boot-greeter | awk 'END{print $2}')/greet/<name>
+----
 
-[NOTE]
-====
-Ideally the delete pod is not required, as the spring-cloud-kubernetes library takes care of it, but with the version of
-spring cloud library it does not seem to work.
-====
+you will notice the response will have updated `greeter.prefix`

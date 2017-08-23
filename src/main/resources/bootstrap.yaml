@@ -1,3 +1,9 @@
 spring:
   application:
     name: spring-boot-greeter
+  cloud:
+    kubernetes:
+      reload:
+        enabled: true
+        strategy: restart_context
+        period: 3000
