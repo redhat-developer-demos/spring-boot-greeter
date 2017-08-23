@@ -30,11 +30,5 @@ This should display the greeting with prefix configured for property `greeter.pr
 === Applying changes
 
 Edit the config map via `oc edit configmap spring-boot-greeter` and change the `greeter.prefix`,
-you will notice the spring boot application redeployed, if you try doing,
-
-[code,sh]
-----
-curl $(oc get route spring-boot-greeter | awk 'END{print $2}')/greet/<name>
-----
-
-you will notice the response will have updated `greeter.prefix`
+you will notice the spring boot application redeployed. Any new calls to the API will have the updated
+`greeter.prefix`
